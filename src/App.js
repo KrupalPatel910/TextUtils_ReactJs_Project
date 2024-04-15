@@ -1,15 +1,18 @@
 import "./App.css";
 import Navbar from "./components/Navbar"; 
-// import TextForm from "./components/TextForm"
+import TextForm from "./components/TextForm"
 import About from "./components/About";
+import {useState} from "react";
 
 function App() {
+  
+ 
   return (
   <>
    <Navbar title = "TextUtils" about = "About TextUtils" />
     <div className="container mt-3 ">
      <About />
-    {/* <TextForm heading = "Enter th text to analyze below "/> */}
+    <TextForm heading = "Enter th text to analyze below "/>
     </div>
   </>
   );

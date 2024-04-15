@@ -17,9 +17,13 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
   }
+
   const  handleUndoClick = () => {
    setText(originalText)
-    
+  }
+  const  handleSummaryClick = () => {
+    let summary  =  text.slice(20)
+   setText(summary)
   }
 
   const handleOnChange = (event) => {
@@ -28,6 +32,8 @@ export default function TextForm(props) {
   };
   const [text, setText] = useState("");
   const [originalText, setOriginalText] = useState('');
+
+  
 
   // text = "new text"; // Wrong way to change the state
   // setText("New text"); // Correct way to change the state
@@ -56,6 +62,9 @@ export default function TextForm(props) {
       <button className="btn btn-primary " onClick={handleUndoClick}>
         Undo 
       </button>
+        <button className="btn btn-primary m-3" onClick={handleSummaryClick}>
+          Summary 
+        </button>
         <button className="btn btn-primary m-3" onClick={handleClearClick}>
           Clear Text 
         </button>
@@ -68,7 +77,6 @@ export default function TextForm(props) {
       <p>{text.split(".").length - 1 } Sentences</p>
       <h3>Preview</h3>
       <p>{text}</p>
-
     </div>
     </>
     
