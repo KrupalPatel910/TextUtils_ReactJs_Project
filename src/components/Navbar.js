@@ -1,9 +1,11 @@
-import React  from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark  ">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+    >
       <div className="container-fluid text-light">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -43,17 +45,30 @@ export default function Navbar(props) {
               Search
             </button>
           </form> */}
+          <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>
+            <input
+              className="form-check-input"
+              type="checkbox"
+              onClick={props.toggleMode}
+              id="flexSwitchCheckDefault"
+            />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+              Enable DarkMode
+            </label>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
 
-Navbar.propType = { title: PropTypes.string.isRequired, 
-     about: PropTypes.string };
+Navbar.propType = {
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string,
+};
 
-// If We cannot add any propTypes than it will appear. 
+// If We cannot add any propTypes than it will appear.
 Navbar.defaultProps = {
-    title: 'Set title here',
-    about:  'About text here' 
-}
+  title: "Set title here",
+  about: "About text here",
+};
