@@ -1,28 +1,39 @@
 import React, { useState } from "react";
 
+
+
+
 export default function TextForm(props) {
   const handleUpClick = () => {
     setOriginalText(text);
-    // console.log("Uppercase was clicked" + text)
     let newText = text.toLocaleUpperCase();
     setText(newText);
+  props.showAlert("Converted to Uppercase", "Success")
+
   };
   const handleLoClick = () => {
     setOriginalText(text);
     let newText = text.toLocaleLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase", "Success")
+
   };
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Text Cleared", "Success")
   };
 
   const handleUndoClick = () => {
     setText(originalText);
+    props.showAlert("Undo Successful", "Success")
   };
+
   const handleSummaryClick = () => {
     let summary = text.slice(20);
     setText(summary);
+    
+
   };
 
   const handleOnChange = (event) => {
