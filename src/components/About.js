@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Use state
-function About() {
+function About(props) {
   const [myStyle, setMyStyle] = useState({
     color: "white ",
     backgroundColor: "black",
@@ -28,7 +28,7 @@ function About() {
   return (
     <>
       <div className="container" style={myStyle}>
-        <h1>About Us</h1>
+        <h1>{props.title}</h1>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header" id="headingOne">
